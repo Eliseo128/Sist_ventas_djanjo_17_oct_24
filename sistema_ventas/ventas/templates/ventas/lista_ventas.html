@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Ventas</title>
+</head>
+<body>
+    <h1>Lista de Ventas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Número de Factura</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Descuento</th>
+                <th>Monto Final</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for venta in ventas %}
+                <tr>
+                    <td>{{ venta.numero_factura }}</td>
+                    <td>{{ venta.fecha }}</td>
+                    <td>{{ venta.cliente.nombre }}</td>
+                    <td>{{ venta.descuento }}</td>
+                    <td>{{ venta.monto_final }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No hay ventas disponibles.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
